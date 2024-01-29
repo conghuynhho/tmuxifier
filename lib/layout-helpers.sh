@@ -242,7 +242,6 @@ load_session() {
 			echo "\"$1\" session layout not found." >&2
 			echo "deep find file in subfolder"
 			file="$TMUXIFIER_LAYOUT_PATH/$1.session.sh"
-			return 1
 		fi
 	fi
 
