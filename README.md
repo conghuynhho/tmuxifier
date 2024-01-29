@@ -1,4 +1,4 @@
-# Tmuxifier [![Build Status](https://api.travis-ci.org/jimeh/tmuxifier.svg)](https://travis-ci.org/jimeh/tmuxifier)
+# Tmuxifier [![Build Status](https://api.travis-ci.org/conghuynhho/tmuxifier.svg)](https://travis-ci.org/conghuynhho/tmuxifier)
 
 Tmuxify your Tmux. Create, edit, manage and load complex Tmux session, window
 and pane configurations with ease.
@@ -29,7 +29,7 @@ Given we have a window layout file called [example.window.sh][] which looks
 like:
 
 [example.window.sh]:
-  https://github.com/jimeh/tmuxifier/blob/master/examples/example.window.sh
+  https://github.com/conghuynhho/tmuxifier/blob/master/examples/example.window.sh
 
 ```bash
 window_root "~/Desktop"
@@ -47,7 +47,7 @@ session using:
 
 Which will yield a Tmux window looking like this:
 
-![example](https://github.com/jimeh/tmuxifier/raw/master/examples/example.window-screenshot.png)
+![example](https://github.com/conghuynhho/tmuxifier/raw/master/examples/example.window-screenshot.png)
 
 ## Installation
 
@@ -55,7 +55,7 @@ Which will yield a Tmux window looking like this:
 
 Clone the repo to your machine:
 
-    git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+    git clone https://github.com/conghuynhho/tmuxifier.git ~/.tmuxifier
 
 Then add `$HOME/.tmuxifier/bin` to your PATH to make the `tmuxifier` executable
 available to you:
@@ -90,7 +90,7 @@ You can also install and update Tmuxifier with
 [TPM](https://github.com/tmux-plugins/tpm):
 
 ```bash
-set -g @plugin 'jimeh/tmuxifier'
+set -g @plugin 'conghuynhho/tmuxifier'
 ```
 
 Trigger TPM's install command with `prefix` + `I` to install Tmuxifier to TPM's
@@ -200,7 +200,7 @@ To load the session layout simply run:
 You'll now have a new Tmux session with your previously defined awesome window
 in it.
 
-[examples]: https://github.com/jimeh/tmuxifier/tree/master/examples
+[examples]: https://github.com/conghuynhho/tmuxifier/tree/master/examples
 
 ## Configure & Customize
 
