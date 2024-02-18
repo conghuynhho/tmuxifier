@@ -239,27 +239,33 @@ load_window() {
 load_session() {
   local file
   if [ "${1#*/}" = "$1" ]; then
-    # There's no slash in the path.
-    if [ -f "$TMUXIFIER_LAYOUT_PATH/$1.session.sh" ] || [ ! -f "$1" ]; then
-      file="$TMUXIFIER_LAYOUT_PATH/$1.session.sh"
-    else
-      # bash's 'source' requires an slash in the filename to not use $PATH.
-      file="./$1"
-    fi
+     # There's no slash in the path.
+     if [ -f "$TMUXIFIER_LAYOUT_PATH/$1.session.sh" ] || [ ! -f "$1" ]; then
+       file="$TMUXIFIER_LAYOUT_PATH/$1.session.sh"
+     else
+       # bash's 'source' requires an slash in the filename to not use $PATH.
+       file="./$1"
+     fi
   else
-    file="$1"
+     file="$1"
+     if ! [ -f "$file" ]; then
+       echo "\"$1\" session layout not found." >&2
+       echo "deep find file in subfolder"
+       file="$TMUXIFIER_LAYOUT_PATH/$1.session.sh"
+       return 1
+     fi
   fi
 
   if ! [ -f "$file" ]; then
-    echo "\"$1\" session layout not found." >&2
-    return 1
+     echo "\"$1\" session layout not found." >&2
+     return 1
   fi
 
   if [ $# -gt 1 ]; then
-    session="$2"
+     session="$2"
   else
-    session="${1/%.session.sh}"
-    session="${session/%.sh}"
+     session="${1/%.session.sh/}"
+     session="${session/%.sh/}"
   fi
 
   set_default_path=true
@@ -268,7 +274,7 @@ load_session() {
 
   # Reset `$session_root`.
   if [[ "$session_root" != "$HOME" ]]; then
-    session_root="$HOME"
+     session_root="$HOME"
   fi
 }
 
